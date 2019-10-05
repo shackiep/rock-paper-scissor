@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+    background-color: gray;
+}
+
+.container {
+    margin: 20px 10% 20px 10%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+/*Score Board and Playing Field*/
+#scoreBoard {
+    justify-content: space-evenly;
+}
+#scoreBoard > div{
+    padding: 20px;
+}
+
+.players {
+    border: 1px solid black;
+    background-color: white;
+    
+}
+
+#battlefield {
+    justify-content: space-around;
+}
+
+#battlefield > div{
+    border: 1px solid blue;
+    padding: 50px;
+}
+
+#comment {
+    font-size: 30px;
+    padding: 20px;
+}
+
+/*Choices Design*/
+.choices {
+    width: 30%;
+}
+.weapons {
+    width: 250px;
+    height: auto;
+}
