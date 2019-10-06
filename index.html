@@ -2,97 +2,36 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <script>
-            var playerScore = 0;
-            var computerScore = 0;
-            var winner = 0;
-            //Function randomizes computer selection
-            function computerPlay () {
-                var choices = ["rock", "paper", "scissors"];
-                var index = Math.floor(Math.random() * choices.length);
-                return choices[index];
-            }
-
-            //Update Scores
-            var updateScore = () => {
-                if (winner == 2) {
-                    computerScore++;
-                }
-                else if (winner == 1) {
-                    playerScore++;
-                }
-            }
-
-            //Funciton plays one round
-            function playRound(playerSelection, computerSelection) {
-                //Check Tie
-                if (playerSelection === computerSelection) {
-                    console.log("It's a tie!");
-                }
-                else {
-                     //Check Rock
-                    if (playerSelection === 'rock') {
-                        if (computerSelection === 'scissors') {
-                            console.log("You Win!" + playerSelection + " beats " + computerSelection + "!");
-                            winner = 1;
-                        }
-                        else {
-                            console.log("You Lose! " + computerSelection + " beats " + playerSelection +  "!");
-                            winner = 2;
-                        }
-                    }
-                    //Check Papper
-                    if (playerSelection === 'paper') {
-                        if (computerSelection === 'rock') {
-                            console.log("You Win! " + playerSelection + " beats " + computerSelection + "!");
-                            winner = 1;
-                        }
-                        else {
-                            console.log("You Lose! " + computerSelection + " beats " + playerSelection +  "!");
-                            winner = 2;
-                        }
-                    }
-                    //Check Scissors
-                    if (playerSelection === 'scissors') {
-                        if (computerSelection === 'paper') {
-                            console.log("You Win! " + playerSelection + " beats " + computerSelection + "!");
-                            winner = 1;
-                        }
-                        else {
-                            console.log("You Lose! " + computerSelection + " beats  " + playerSelection +  "!");
-                            winner = 2;
-                        }
-                    }
-                }
-                updateScore();
-                console.log("Player Choice: " + playerSelection + " | Computer Choice: " + computerSelection);
-                console.log("Player Score: " + playerScore + " | Computer Score: " + computerScore);
-                winner = 0;
-            }
-
-            function gameWinner() {
-                if (playerScore === computerScore) { console.log("It's a tie!"); }
-                if (playerScore > computerScore) { console.log("Player Wins!"); }
-                else { console.log("Computer Wins! You SUCK"); }
-            }
-            //Play 5 rounds of Rock Paper Scissors
-            function game() {
-                for (let i = 0; i < 5; i++) {
-                    var playerSelection = prompt("Enter Rock, Paper, or Scissors");
-                    playerSelection = playerSelection.toLowerCase();
-                    var computerSelection = computerPlay();
-                    while ((playerSelection != 'rock') && (playerSelection != 'paper') && (playerSelection != 'scissors')) { 
-                        playerSelection = prompt("You've entered an invalid answer. Please enter Rock, Paper, or Scissors");
-                        playerSelection = playerSelection.toLowerCase();
-                    }
-                    playRound(playerSelection, computerSelection);
-                }
-                gameWinner();
-            }
-            game();
-        </script>
+        <link type="text/css" href="rps.css" rel="stylesheet"/>
     </head>
     <body>
-
+        <h1>Welcome to Rock, Paper, Scissors!<br>Gambate!</h1>
+            <div class="flex-vertical" id="scoreBoard">
+                <div class="container battlefield" id="playerName">
+                    <div>&nbsp Player</div>
+                    <div>Computer</div>
+                </div>
+                <div class="container battlefield" id="board">
+                    <div class="players">
+                        <div class="scoreBox" id="playerScore">0</div>
+                    </div>
+                    <div id="score">Score</div>
+                    <div class="players">
+                        <div class="scoreBox" id="computerScore">0</div>
+                    </div>
+                </div>
+                <div class="container battlefield" id="choice-field">
+                    <div class="circle" id="pImage"><p id="pp">Player<br>Choice</p></div>
+                    <div id="versus">Versus</div>
+                    <div class="circle" id="cImage"><p id="cc">Computer<br>Choice</p></div>
+                </div>
+            </div>
+            <div id="comment">Pick your cuddly weapon</div>
+        <div class="container">
+            <div class="choices" name="rock"><img id="rock" class="weapons" src="rock.png" alt="rock"/></div>
+            <div class="choices"  name="paper"><img id="paper" class="weapons" src="paper.png" alt="paper"/></div>
+            <div  class="choices" name="scissors"><img id="scissors" class="weapons" src="scissors.png" alt="scissors"/></div>
+        </div>
+        <script type="text/javascript" src="rps-script.js" charset="utf-8"></script>
     </body>
 </html>
